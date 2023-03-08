@@ -12,6 +12,7 @@ import (
 	"time"
 )
 
+// todo:处理分段消息
 func HandleMessage(t tlv.TLVer) ([]byte, error) {
 	v := t.(*tlv.MessageTLV)
 	defer func() {
