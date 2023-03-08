@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+// 定义服务
+service Greeter {
+  rpc  ask(HelloReq) returns (HelloResp) {}
+}
+
+message HelloReq {
+  string question = 1;
+  string name = 2;
+}
+
+message HelloResp {
+  string anwser = 1;
+  string to = 2;
+}

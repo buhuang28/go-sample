@@ -1,0 +1,5 @@
+*.log
+*.dll
+*.so
+.idea
+*.exe
