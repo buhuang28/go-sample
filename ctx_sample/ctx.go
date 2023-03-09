@@ -21,11 +21,18 @@ func main() {
 		fmt.Println("execute cancel")
 	}()
 
-	select {
-	case <-time.After(time.Second):
-		fmt.Println("run")
-	case <-cancelCtx.Done():
-		fmt.Println("done")
+loop:
+	for {
+		select {
+		case <-time.After(time.Second):
+			fmt.Println("run")
+			goto loop
+		case <-cancelCtx.Done():
+			fmt.Println("done")
+			break loop
+		}
 	}
+
 	time.Sleep(time.Second * 5)
+	fmt.Println("success")
 }
